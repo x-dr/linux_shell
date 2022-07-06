@@ -24,13 +24,27 @@ sudo apt-get upgrade
 echo "already change source list. All update & upgrade have done!"
 
 
+echo "install openssh"
+sudo apt-get install openssh-server -y
+echo "install openssh done"
+
+echo "install git"
+sudo apt-get install git -y
+echo "install git done"
+
+echo "install vim"
+sudo apt-get install vim -y
+echo "install vim done"
+
+echo "install curl"
+sudo apt-get install curl -y
+echo "install curl done"
+
+
 echo "root ssh"
 sudo sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
-sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sudo systemctl restart sshd
 echo "already root ssh"
-
-
-
 
 
